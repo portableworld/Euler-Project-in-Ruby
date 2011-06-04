@@ -57,6 +57,10 @@ class Fixnum
       return false
     end
   end
+  
+  def to_triangle()
+    (self * (self + 1))/2
+  end
 
   def to_words()
     # Only writing up to 1,000 capacity
