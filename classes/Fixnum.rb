@@ -37,7 +37,19 @@ class Fixnum
     end
     
     def is_pandigital?()
-        d = ""
+		num = self.to_s
+		(1..num.size).each do |n|
+			if num.include?(n.to_s)
+				num.slice!(n.to_s)
+			else
+				return false
+			end
+		end
+		return true
+	end
+	
+	def can_become_pandigital?()
+		d = ""
 		i = 1
 		until d.length >= 9
 			d += (self*i).to_s

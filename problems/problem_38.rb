@@ -4,7 +4,7 @@ nums = Array.new
 
 (2..10**6).each do |n|
     print "Checking #{n}"
-    if n.is_pandigital?
+    if n.can_become_pandigital?
 		nums << n.pandigitize
 		puts " ---- true"
 	else
