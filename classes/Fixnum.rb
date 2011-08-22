@@ -3,12 +3,15 @@ require "prime"
 class Fixnum
 
     def all_divisors
-        divisors = Array.new
-		(1...self).each do |num|
-			divisors << num if self % num == 0
-		end
-		return divisors
-	end
+          divisors = Array.new
+          	(1...Math.sqrt(self).to_i).each do |num|
+      			if self % num == 0
+              divisors << num
+              divisors << self/num
+           end
+      		end
+  		return divisors.sort
+  	end
     
     def is_multiple_of?(num)
         self % num == 0
