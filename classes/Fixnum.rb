@@ -4,13 +4,14 @@ class Fixnum
 
     def all_divisors
           divisors = Array.new
-          	(1...Math.sqrt(self).to_i).each do |num|
+              (1...Math.sqrt(self).to_i).each do |num|
       			if self % num == 0
               divisors << num
               divisors << self/num
            end
-      		end
-  		return divisors.sort
+          end
+
+  		divisors.sort
   	end
     
     def is_multiple_of?(num)
@@ -25,21 +26,23 @@ class Fixnum
                 return false
             end
         end
-		return true
+
+		  true
     end
     
     def is_lychrel?()
-        num = self
-        (1..50).each do |i|
+      num = self
+      (1..50).each do |i|
         	num = num + num.to_s.reverse.to_i
     		if num.is_palindrome?
     			return false
     		end
-    	end
-    	return true
+      end
+
+    	true
     end
     
-    def is_pandigital?()
+  def is_pandigital?()
 		num = self.to_s
 		(1..num.size).each do |n|
 			if num.include?(n.to_s)
@@ -47,8 +50,9 @@ class Fixnum
 			else
 				return false
 			end
-		end
-		return true
+    end
+
+		true
 	end
 	
 	def can_become_pandigital?()
@@ -162,7 +166,7 @@ class Fixnum
       60 => "sixty",
       70 => "seventy",
       80 => "eighty",
-      90 => "ninty"
+      90 => "ninety"
     }
     return case 
       when self < 13
