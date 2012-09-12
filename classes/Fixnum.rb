@@ -2,45 +2,45 @@ require "prime"
 
 class Fixnum
 
-    def all_divisors
-          divisors = Array.new
-              (1...Math.sqrt(self).to_i).each do |num|
-      			if self % num == 0
-              divisors << num
-              divisors << self/num
-           end
-          end
-
-  		divisors.sort
-  	end
-    
-    def is_multiple_of?(num)
-        self % num == 0
-    end
-  
-    def is_palindrome?(base = 10)
-        num = self
-    	num = num.to_s(base)
-        (0...num.length).each do |i|
-            if num[i] != num[(num.length-1)-i]
-                return false
-            end
-        end
-
-		  true
-    end
-    
-    def is_lychrel?()
-      num = self
-      (1..50).each do |i|
-        	num = num + num.to_s.reverse.to_i
-    		if num.is_palindrome?
-    			return false
-    		end
+  def all_divisors
+    divisors = Array.new
+    (1...Math.sqrt(self).to_i).each do |num|
+			if self % num == 0
+        divisors << num
+        divisors << self/num
       end
-
-    	true
     end
+
+		divisors.sort
+	end
+    
+  def is_multiple_of?(num)
+      self % num == 0
+  end
+  
+  def is_palindrome?(base = 10)
+    num = self
+  	num = num.to_s(base)
+    (0...num.length).each do |i|
+      if num[i] != num[(num.length-1)-i]
+        return false
+      end
+    end
+
+	  true
+  end
+    
+  def is_lychrel?()
+    num = self
+    (1..50).each do |i|
+      num = num + num.to_s.reverse.to_i
+  		if num.is_palindrome?
+  			return false
+  		end
+    end
+
+  	true
+  end
     
   def is_pandigital?()
 		num = self.to_s
@@ -85,12 +85,12 @@ class Fixnum
 	end
 
     def get_next_number()
-        num = self
-        if num.even?
-            return num/2
-        else
-            return (num*3) + 1
-        end
+      num = self
+      if num.even?
+          return num/2
+      else
+          return (num*3) + 1
+      end
     end
 
   def is_bouncy?()
@@ -124,13 +124,9 @@ class Fixnum
     end
   end
   
-    def is_factor_of(num)
-        if num % self == 0
-        	return true
-    	else
-    		return false
-    	end
-    end
+  def is_factor_of(num)
+    num % self == 0
+  end
   
   def to_triangle()
     (self * (self + 1))/2
