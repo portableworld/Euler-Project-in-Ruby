@@ -124,9 +124,10 @@ class Fixnum
     end
   end
   
-  def is_factor_of(num)
+  def is_factor_of?(num)
     num % self == 0
   end
+  alias :is_factor_of :is_factor_of?
   
   def to_triangle()
     (self * (self + 1))/2
