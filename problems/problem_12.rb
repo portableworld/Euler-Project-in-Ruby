@@ -9,7 +9,7 @@ until found
 	num += i
 	puts "Checking #{num}"
 	divisors = num.all_divisors
-	found = true if divisors.length > 500
+	found = divisors.length > 500
 end
 
 puts "Result is: #{num}"
