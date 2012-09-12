@@ -14,11 +14,9 @@ found_result = false
 
 until found_result
 	num += 1
-	if 		same_digits?(num, 2) && same_digits?(num, 3) &&
-			same_digits?(num, 4) && same_digits?(num, 5) &&
-			same_digits?(num, 6)
-		found_result = true
-	end
+	found_result = same_digits?(num, 2) && same_digits?(num, 3) &&
+								 same_digits?(num, 4) && same_digits?(num, 5) &&
+								 same_digits?(num, 6)
 end
 
 puts "The result is: #{num}"
