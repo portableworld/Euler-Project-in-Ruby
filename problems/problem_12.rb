@@ -1,11 +1,11 @@
-require File.join(File.dirname(__FILE__), "..", "classes", "all_classes.rb")
+require_relative '../classes/all_classes'
 
 found = false
 num = 28
 i = 7
 
 until found
-    i += 1
+  i += 1
 	num += i
 	puts "Checking #{num}"
 	divisors = num.all_divisors
