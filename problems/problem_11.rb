@@ -1,13 +1,13 @@
 def left_to_right(row)
-    highest = 0
-	0.upto(row.length - 4) do |i|
-		product  = row[i].to_i
-		product *= row[i+1].to_i
-		product *= row[i+2].to_i 
-		product *= row[i+3].to_i
-		highest  = product if product > highest
-	end
-	return highest
+  highest = 0
+  0.upto(row.length - 4) do |i|
+    product  = row[i].to_i
+    product *= row[i+1].to_i
+    product *= row[i+2].to_i
+    product *= row[i+3].to_i
+    highest  = product if product > highest
+  end
+  highest
 end
 
 def up_to_down(row, index)
@@ -19,7 +19,7 @@ def up_to_down(row, index)
 		product *= eval("@row#{index+3}[i]").to_i
 		highest  = product if product > highest
 	end
-	return highest
+	highest
 end
 
 def left_to_right_diagonal(row, index)
@@ -31,7 +31,7 @@ def left_to_right_diagonal(row, index)
 		product *= eval("@row#{index+3}[i+3]").to_i
 		highest  = product if product > highest
 	end
-	return highest
+	highest
 end
 
 def right_to_left_diagonal(row, index)
@@ -43,7 +43,7 @@ def right_to_left_diagonal(row, index)
 		product *= eval("@row#{index+3}[i-3]").to_i
 		highest  = product if product > highest
 	end
-	return highest
+	highest
 end
 
 nums = Array.new
