@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), "..", "classes", "all_classes.rb")
+require_relative '../classes/all_classes'
 
 count = 0
 
