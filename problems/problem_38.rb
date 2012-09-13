@@ -1,10 +1,9 @@
-require File.join(File.dirname(__FILE__), "..", "classes", "all_classes.rb")
-
+require_relative '../classes/all_classes'
 nums = Array.new
 
 (2..10**6).each do |n|
-    print "Checking #{n}"
-    if n.can_become_pandigital?
+  print "Checking #{n}"
+  if n.can_become_pandigital?
 		nums << n.pandigitize
 		puts " ---- true"
 	else
