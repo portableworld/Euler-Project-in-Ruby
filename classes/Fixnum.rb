@@ -5,93 +5,85 @@ class Fixnum
   def all_divisors
     divisors = Array.new
     (1...Math.sqrt(self).to_i).each do |num|
-			if self % num == 0
-        divisors << num
+      if self % num == 0
+ 	divisors << num
         divisors << self/num
       end
     end
-
-		divisors.sort
-	end
+    divisors.sort
+  end
     
   def is_multiple_of?(num)
-      self % num == 0
+    self % num == 0
   end
   
   def is_palindrome?(base = 10)
     num = self
-  	num = num.to_s(base)
+    num = num.to_s(base)
     (0...num.length).each do |i|
-      if num[i] != num[(num.length-1)-i]
-        return false
-      end
+      return false if num[i] != num[(num.length-1)-i]
     end
-
-	  true
+    true
   end
     
   def is_lychrel?()
     num = self
     (1..50).each do |i|
       num = num + num.to_s.reverse.to_i
-  		if num.is_palindrome?
-  			return false
-  		end
+      return false if num.is_palindrome?
     end
-
-  	true
+    true
   end
     
   def is_pandigital?()
-		num = self.to_s
-		(1..num.size).each do |n|
-			if num.include?(n.to_s)
-				num.slice!(n.to_s)
-			else
-				return false
-			end
-    end
-
-		true
-	end
-	
-	def can_become_pandigital?()
-		d = ""
-		i = 1
-		until d.length >= 9
-			d += (self*i).to_s
-			i += 1
-		end
-		return false if d.length > 9
-		d_tester = d.clone
-		(1..9).each do |n|
-			if d_tester.include?(n.to_s)
-				d_tester.slice!(n.to_s)
-			else
-				return false
-			end
-		end
-		return true
-	end
-    
-    def pandigitize()
-    	d = ""
-		i = 1
-		until d.length >= 9
-			d += (self*i).to_s
-			i += 1
-		end
-		d
-	end
-
-    def get_next_number()
-      num = self
-      if num.even?
-          return num/2
+    num = self.to_s
+    (1..num.size).each do |n|
+      if num.include?(n.to_s) # Maybe ternary would look better?
+        num.slice!(n.to_s)
       else
-          return (num*3) + 1
+        return false
       end
     end
+    true
+  end
+	
+  def can_become_pandigital?()
+    d = ""
+    i = 1
+    until d.length >= 9
+      d += (self*i).to_s
+      i += 1
+    end
+    return false if d.length > 9
+    d_tester = d.clone
+    (1..9).each do |n|
+      if d_tester.include?(n.to_s)
+        d_tester.slice!(n.to_s)
+      else
+        return false
+      end
+    end
+    true
+  end
+    
+  def pandigitize()
+    d = ""
+    i = 1
+    until d.length >= 9
+      d += (self*i).to_s
+      i += 1
+    end
+    d
+  end
+
+  def get_next_number()
+    num = self
+    if num.even?
+      return num/2
+    else
+      return (num*3) + 1
+    end
+  end
 
   def is_bouncy?()
     num = self
